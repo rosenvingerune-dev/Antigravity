@@ -1,0 +1,43 @@
+# Antigravity Service Status & Troubleshooting Guide
+**Status Date:** January 16, 2026
+**Issue:** "Agent is currently loading..." (Infinite Loop)
+**Target Users:** Google Pro / Ultra Subscribers
+
+---
+
+## 1. Current Situation Summary
+As of mid-January 2026, Google Antigravity is experiencing a widespread **"Token-Handshake" failure**. While the service appears active, Pro/Ultra tier accounts are being trapped in an initialization loop. This is likely due to a backend synchronization error between the new Gemini 3 Ultra weights and the Antigravity "Gravity-Shift" engine.
+
+## 2. Identified Causes
+* **Credential Hanging:** The IDE is failing to verify Pro status with the backend, causing the agent to wait indefinitely for "Priority Lane" access.
+* **Zombie Processes:** On Windows, the IDE often fails to attach to previous terminal sessions (PowerShell/CMD), resulting in a silent hang.
+* **Patch v.2.1.4 Conflict:** A recent update to address "Logic Suspensions" has inadvertently caused session timeouts for high-compute users.
+
+---
+
+## 3. Proven Workarounds (Community Tested)
+
+### A. The Onboarding Reset
+This force-refreshes your Pro credentials and any pending Terms of Service updates.
+1.  Open Antigravity and press `Ctrl + Shift + P` (or `Cmd + Shift + P`).
+2.  Search for: `>Antigravity: Reset onboarding`.
+3.  Log out and re-authenticate via your browser.
+
+### B. Manual Cache Clearance
+Clearing the "Agent Brain" forces the IDE to rebuild its local environment.
+* **Windows:** Delete `%APPDATA%\Google\Antigravity`
+* **macOS:** Delete `~/Library/Application Support/Antigravity/Cache`
+* **Linux:** Delete `~/.config/Antigravity`
+
+### C. The "Flash" Downgrade (Temporary Fix)
+If the Ultra model is stuck:
+1.  Locate the model toggle in the bottom-right status bar.
+2.  Switch from **Gemini 3 Ultra** to **Gemini 3 Flash**.
+3.  Flash uses a different processing lane and often bypasses the loading hang.
+
+---
+
+## 4. Official Statements & Future Outlook
+Google has acknowledged "backend service degradations" on the AI Studio forums. While there is no official timeline for a hotfix, history suggests a **Logic Patch (v.2.1.5)** is likely imminent to resolve the credential handshaking issue.
+
+> **Warning:** Due to reports of "Shadow Refactoring" bugs in the current build, it is highly recommended to push all local changes to a remote Git repository before attempting a deep cache reset.
