@@ -1,0 +1,44 @@
+In Google Antigravity, "Skills" are modular capabilities that tell the AI agent how to perform specific tasks, what tools to use, and what rules to follow. You insert them by placing a folder containing a SKILL.md file into specific directories on your machine.
++1 Here is how to add them for your specific project versus globally:
+
+a) My Project (Workspace Scope)
+If you want a skill to be available only within a specific coding project (e.g., a custom deployment script or a specific database query tool for that app), use the workspace directory.
+Navigate to your project's root folder.
+Create a hidden directory named .agent (if it doesn't exist).
+Inside that, create a skills folder.
+Insert your skill: Create a new folder for your skill and add a SKILL.md file inside it.
+Path: <your-project-root>/.agent/skills/your-skill-name/SKILL.md
+
+b) Antigravity Global (Global Scope)
+If you want a skill to be available across all projects you open in Antigravity (e.g., a "Format JSON" utility or a "Code Review" standard), use the global directory.
+Open your file explorer or terminal.
+Navigate to your home directory's Gemini folder.
+Insert your skill: Create a folder for the skill and add the SKILL.md file.
+MacOS/Linux: ~/.gemini/antigravity/skills/your-skill-name/SKILL.md
+Windows: C:\Users\<YourUsername>\.gemini\antigravity\skills\your-skill-name\SKILL.md
+
+Basic SKILL.md Template
+For the agent to "pick up" the skill, the file must start with specific metadata (YAML frontmatter). Here is a simple example:
+Markdown
+
+---
+name: my-custom-tool
+description: Use this skill when you need to [describe the specific trigger].
+---
+
+# My Custom Tool
+Provide detailed instructions here for the agent. 
+
+## Instructions
+1. Run the script located in ./scripts/run.py
+2. Capture the output and summarize it for the user.
+
+## Constraints
+- Do not modify any files in the /config folder.
+Key Tips for Success
+The Description is the Trigger: The description field in the header is what the agent uses to decide when to activate the skill. Be very specific about when it should be used.
+
+Automatic Activation: You don't usually need to "call" the skill. If you ask Antigravity to "Deploy the app," it will look through your skill descriptions to find one that matches that goal.
++1
+
+Refresh: After adding a new skill folder, you may need to restart your Antigravity agent session for it to index the new capabilit
